@@ -119,20 +119,50 @@ export default function LandingPage() {
             <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="bg-background p-6 rounded-lg shadow border">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-muted"></div>
-                    <div>
-                      <p className="font-medium">User {i + 1}</p>
-                      <p className="text-sm text-muted-foreground">Location {i + 1}</p>
-                    </div>
+              <div className="bg-background p-6 rounded-lg shadow border hover:shadow-md transition-all">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-white flex items-center justify-center text-xl font-bold text-white">
+                    RA
                   </div>
-                  <p className="text-muted-foreground">
-                    "ShareStore has completely changed how I think about getting rid of things I no longer need. Instead of throwing them away, I can find someone who values them and get something I want in return."
-                  </p>
+                  <div>
+                    <p className="font-medium">Rehman</p>
+                    <p className="text-sm text-muted-foreground">Nawabshah</p>
+                  </div>
                 </div>
-              ))}
+                <p className="text-muted-foreground">
+                  "ShareStore has completely changed how I think about getting rid of things I no longer need. The community here is amazing and I've made some great exchanges!"
+                </p>
+              </div>
+
+              <div className="bg-background p-6 rounded-lg shadow border hover:shadow-md transition-all">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-darkRed to-white flex items-center justify-center text-xl font-bold text-white">
+                    AA
+                  </div>
+                  <div>
+                    <p className="font-medium">Ahsan</p>
+                    <p className="text-sm text-muted-foreground">Karachi</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground">
+                  "I love how easy it is to find people interested in trading. The platform is user-friendly and the community is very responsive!"
+                </p>
+              </div>
+
+              <div className="bg-background p-6 rounded-lg shadow border hover:shadow-md transition-all">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-white flex items-center justify-center text-xl font-bold text-white">
+                    UM
+                  </div>
+                  <div>
+                    <p className="font-medium">Umar</p>
+                    <p className="text-sm text-muted-foreground">Lahore</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground">
+                  "Trading items has never been easier. I've found some amazing deals and met wonderful people through ShareStore!"
+                </p>
+              </div>
             </div>
           </div>
         </section>
