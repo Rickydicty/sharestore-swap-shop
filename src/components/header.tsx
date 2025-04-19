@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Menu, X, Search, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -46,7 +47,10 @@ export function Header() {
           <Link to="/dashboard" className="relative text-sm font-medium transition-colors hover:text-primary">
             <Bell className={`h-5 w-5 ${theme === 'dark' ? 'text-red-500' : ''}`} />
             {unreadNotifications > 0 && (
-              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-primary text-white">
+              <Badge 
+                variant="destructive" 
+                className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-red-500 text-white"
+              >
                 {unreadNotifications}
               </Badge>
             )}

@@ -134,7 +134,10 @@ export function MobileDashboardNav() {
         >
           <Bell className="h-5 w-5" />
           {unreadNotifications > 0 && (
-            <Badge className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center p-0 text-[10px]">
+            <Badge 
+              variant="destructive" 
+              className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center p-0 bg-red-500 text-white text-[10px]"
+            >
               {unreadNotifications}
             </Badge>
           )}
