@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Menu, X, Search, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,10 +5,12 @@ import { ThemeToggle } from "./theme-toggle";
 import { useState } from "react";
 import { useStore } from "@/lib/store";
 import { Badge } from "@/components/ui/badge";
+import { useTheme } from "./theme-provider";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { notifications } = useStore();
+  const { theme } = useTheme();
 
   const unreadNotifications = notifications.filter(
     (notification) => !notification.read && notification.userId === useStore().currentUser.id
@@ -26,7 +27,6 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
             Home
@@ -44,7 +44,7 @@ export function Header() {
             <Search className="h-5 w-5" />
           </Link>
           <Link to="/dashboard" className="relative text-sm font-medium transition-colors hover:text-primary">
-            <Bell className="h-5 w-5" />
+            <Bell className={`h-5 w-5 ${theme === 'dark' ? 'text-red-500' : ''}`} />
             {unreadNotifications > 0 && (
               <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-primary text-white">
                 {unreadNotifications}
@@ -57,7 +57,6 @@ export function Header() {
           <ThemeToggle />
         </nav>
 
-        {/* Mobile Menu Button */}
         <Button
           variant="ghost"
           size="icon"
@@ -68,7 +67,6 @@ export function Header() {
         </Button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden container py-4 pb-6 border-b">
           <nav className="flex flex-col gap-4">

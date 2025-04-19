@@ -1,16 +1,19 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight, RefreshCcw, Truck, CheckSquare, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BackgroundAnimation } from "@/components/background-animation";
+import { DarkBackgroundAnimation } from "@/components/dark-background-animation";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { categories } from "@/lib/mockData";
+import { useTheme } from "@/components/theme-provider";
 
 export default function LandingPage() {
+  const { theme } = useTheme();
+  
   return (
     <div className="min-h-screen flex flex-col">
-      <BackgroundAnimation />
+      {theme === 'light' ? <BackgroundAnimation /> : <DarkBackgroundAnimation />}
       <Header />
       
       <main className="flex-1">
@@ -26,7 +29,7 @@ export default function LandingPage() {
               Sustainable, simple, and community-driven.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-primary text-white hover-glow font-semibold">
+              <Button asChild size="lg" className="dark:bg-red-800 dark:text-white dark:hover:bg-red-700 font-semibold">
                 <Link to="/post-item">
                   List an Item <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
